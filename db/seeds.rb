@@ -6,4 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Airport.destroy_all
+
 airports = Airport.create([{ name: 'SFO'}, { name: 'JFK'}, { name: 'EWR'}, {name: 'ORD'}])
+
+p "Can you see the first airport? #{airports.first.name}"
+p "How about the last? #{airports.last.name}"
