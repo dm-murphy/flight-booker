@@ -1,24 +1,28 @@
-# README
+# Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Quick Take
 
-Things you may want to cover:
+[The Odin Project's](https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/flight-booker) Flight Booker app highlights some more advanced uses of forms in Rails. This project creates the initial steps to booking a one-way flight. 
 
-* Ruby version
+## How it Works
 
-* System dependencies
+Users can search available flights with a form of dropdown menus covering departing airport, arriving airport, date and number of passengers. Next users can choose from the resulting flights with another form or refine their results with a new search. Finally users can enter all the passenger information and see the resulting booking.
 
-* Configuration
+## Demo Online
 
-* Database creation
+Heroku app coming soon!
 
-* Database initialization
+## Try It Local
 
-* How to run the test suite
+* Ruby version 2.7.2
+* Rails version 6.1.4
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+$ git clone git@github.com:dm-murphy/flight-booker.git
+$ bundle install
+$ rails db:migrate
+```
 
-* Deployment instructions
+## What Was Learned
 
-* ...
+Coming soon!
