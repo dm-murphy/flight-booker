@@ -23,12 +23,14 @@ flights = Flight.create!([
             {
               departing_airport_id: Airport.find_by!(name: "SFO").id,
               arriving_airport_id: Airport.find_by!(name: "ORD").id,
-              takeoff: '2021-12-9T04:05:06+00:00'
+              takeoff: '2021-12-9T04:05:06+00:00',
+              duration: 125
             },
             {
               departing_airport_id: Airport.find_by!(name: "JFK").id,
               arriving_airport_id: Airport.find_by!(name: "ORD").id,
-              takeoff: '2021-12-11T09:02:01+00:00'
+              takeoff: '2021-12-11T09:02:01+00:00',
+              duration: 324
             }
           ])
 
@@ -41,6 +43,7 @@ p "Does it match the airport found by AGAIN name? #{Airport.find_by!(name: "SFO"
 p "How about just saying departing airport! and getting its name? #{flights.first.departing_airport.name}"
 puts
 p "Does first flight takeoff show anything?: #{flights.first.takeoff}"
+p "First flight duration? #{flights.first.duration}"
 puts
 p "Can you see the last flight? #{flights.last}"
 p "Last flight departing airport: #{flights.last.departing_airport_id}"
@@ -51,3 +54,4 @@ p "Does it match the airport found by AGAIN name? #{Airport.find_by!(name: "ORD"
 p "How about just saying departing airport! and getting its name? #{flights.last.departing_airport.name}"
 puts
 p "Does last flight takeoff show anything?: #{flights.last.takeoff}"
+p "Last flight duration? #{flights.last.duration}"
