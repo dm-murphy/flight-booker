@@ -2,5 +2,22 @@
  <%= form_with(url: "/flights", method: "get") do %>
     <%= label_tag(:query, "Search for:") %>
     <%= text_field_tag(:query) %>
+    <br>
+    <br>
+    <%= collection_select :flight, :departing_airport_id, Airport.all, :id, :name, {:prompt => 'Select departing airport'} %>
+    <br>
+    <br>
+    <%= collection_select :flight, :arriving_airport_id, Airport.all, :id, :name, {:prompt => 'Select arriving airport'} %>
+    <br>
+    <br>
+    <%= select :flight, :passengers, [1, 2, 3, 4], {:prompt => 'Number of passengers'} %>
+    <br>
+    <br>
+    <%= select_month(Date.today) %>
+    <br>
+    <br>
+    <%= select_year(Date.today, :start_year => Date.today.year, :end_year => 2.years.from_now.year) %>
+    <br>
+    <br>
     <%= submit_tag("Search") %>
   <% end %>
