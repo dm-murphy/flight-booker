@@ -13,10 +13,7 @@
     <%= select :flight, :passengers, [1, 2, 3, 4], {:prompt => 'Number of passengers'} %>
     <br>
     <br>
-    <%= select_month(Date.today) %>
-    <br>
-    <br>
-    <%= select_year(Date.today, :start_year => Date.today.year, :end_year => 2.years.from_now.year) %>
+    <%= collection_select :flight, :id, Flight.all, :id, :takeoff_formatted, {:prompt => 'Date / Time of flight'} %>
     <br>
     <br>
     <%= submit_tag("Search") %>
