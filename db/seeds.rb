@@ -31,6 +31,12 @@ flights = Flight.create!([
               arriving_airport_id: Airport.find_by!(name: "ORD").id,
               takeoff: '2021-12-11T09:02:01+00:00',
               duration: 324
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "JFK").id,
+              arriving_airport_id: Airport.find_by!(name: "ORD").id,
+              takeoff: '2021-12-11T16:02:01+00:00',
+              duration: 324
             }
           ])
 
