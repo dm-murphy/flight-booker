@@ -1,19 +1,41 @@
 <h3> Flights Form</h3>
  <%= form_with(url: "/flights", method: "get") do %>
-    <%= label_tag(:query, "Search for:") %>
-    <%= text_field_tag(:query) %>
+    <%= collection_select(
+                          :flight,
+                          :departing_airport_id, 
+                          Airport.all, 
+                          :id,
+                          :name,
+                          {:prompt => 'Select departing airport'}
+                          ) %>
     <br>
     <br>
-    <%= collection_select :flight, :departing_airport_id, Airport.all, :id, :name, {:prompt => 'Select departing airport'} %>
+    <%= collection_select(
+                          :flight,
+                          :arriving_airport_id,
+                          Airport.all,
+                          :id,
+                          :name,
+                          {:prompt => 'Select arriving airport'} 
+                          ) %>
     <br>
     <br>
-    <%= collection_select :flight, :arriving_airport_id, Airport.all, :id, :name, {:prompt => 'Select arriving airport'} %>
+    <%= select(
+               :flight,
+               :passengers,
+               [1, 2, 3, 4],
+               {:prompt => 'Number of passengers'}
+               ) %>
     <br>
     <br>
-    <%= select :flight, :passengers, [1, 2, 3, 4], {:prompt => 'Number of passengers'} %>
-    <br>
-    <br>
-    <%= collection_select :flight, :takeoff, Flight.all, :takeoff, :takeoff_formatted, {:prompt => 'Date / Time of flight'} %>
+    <%= collection_select(
+                          :flight,
+                          :takeoff,
+                          Flight.all,
+                          :takeoff,
+                          :takeoff_date_formatted,
+                          {:prompt => 'Date of flight'} 
+                          ) %>
     <br>
     <br>
     <%= submit_tag("Search") %>
