@@ -40,4 +40,10 @@
     <br>
     <%= submit_tag("Search") %>
   <% end %>
-  
+
+  <p>
+  <% @searched_flights.each do |flight| %>
+    <%= flight.takeoff %>
+    <br>
+  <% end %>
+  </p>
