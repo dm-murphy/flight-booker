@@ -31,9 +31,9 @@
     <br>
     <%= collection_select(
                           :flight,
-                          :takeoff,
-                          Flight.all,
-                          :takeoff,
+                          :takeoff_date,
+                          Flight.distinct.select(:takeoff_date),
+                          :takeoff_date,
                           :takeoff_date_formatted,
                           {:prompt => 'Date of flight'} 
                           ) %>
@@ -48,8 +48,9 @@
     <%= form_with url: "/bookings", method: "get" do |form| %>
     
       <% @searched_flights.each do |flight| %>
-        <%= form.radio_button :takeoff, flight.takeoff %>
-        <%= form.label :searched_flight, flight.takeoff %>
+        <%= form.radio_button :searched_flight, flight.id %>
+        <%= form.label :searched_flight, flight.takeoff_time_formatted %>
+        <%= form.label :searched_flight, flight.takeoff_date %>
         <%= form.hidden_field :passengers, :value => @number_passengers %>
         <br>
         <br>
@@ -59,3 +60,4 @@
     <% end %>
   <% end %>
   </p>
+  
