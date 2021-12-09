@@ -25,7 +25,7 @@
                :flight,
                :passengers,
                [1, 2, 3, 4],
-               {:prompt => 'Number of passengers'}
+               {:prompt => 'Number of passengers'},
                ) %>
     <br>
     <br>
@@ -35,7 +35,6 @@
                           Flight.all,
                           :takeoff,
                           :takeoff_date_formatted,
-                          
                           {:prompt => 'Date of flight'} 
                           ) %>
     <br>
@@ -43,11 +42,20 @@
     <%= submit_tag("Search") %>
   <% end %>
 
+<h4> Search Results</h4>
   <p>
   <% if @searched_flights %>
-    <% @searched_flights.each do |flight| %>
-      <%= flight.takeoff %>
-      <br>
+    <%= form_with url: "/bookings", method: "get" do |form| %>
+    
+      <% @searched_flights.each do |flight| %>
+        <%= form.radio_button :takeoff, flight.takeoff %>
+        <%= form.label :searched_flight, flight.takeoff %>
+        <%= form.hidden_field :passengers, :value => @number_passengers %>
+        <br>
+        <br>
+      <% end %>
+
+    <%= form.submit %>
     <% end %>
   <% end %>
   </p>
