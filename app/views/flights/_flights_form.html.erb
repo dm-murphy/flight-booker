@@ -48,7 +48,7 @@
     <%= form_with url: "/bookings", method: "get" do |form| %>
     
       <% @searched_flights.each do |flight| %>
-        <%= form.radio_button :searched_flight, flight.id %>
+        <%= form.radio_button :flight_id, flight.id %>
         <%= form.label :searched_flight, flight.takeoff_time_formatted %>
         <%= form.label :searched_flight, flight.takeoff_date %>
         <%= form.hidden_field :passengers, :value => @number_passengers %>
@@ -60,4 +60,3 @@
     <% end %>
   <% end %>
   </p>
-  
