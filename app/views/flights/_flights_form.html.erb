@@ -45,7 +45,7 @@
 <h4> Search Results</h4>
   <p>
   <% if @searched_flights %>
-    <%= form_with url: "/bookings", method: "get" do |form| %>
+    <%= form_with url: "/bookings/new", method: "get" do |form| %>
     
       <% @searched_flights.each do |flight| %>
         <%= form.radio_button :flight_id, flight.id %>
