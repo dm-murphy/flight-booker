@@ -1,0 +1,26 @@
+<h2>New Booking Form</h2>
+
+<p>
+  <% if @booking %>
+    <%= form_with url: "/bookings/create", method: "get" do  %>
+      <%= label :takeoff_time, @flight.takeoff_time_formatted %>
+      <%= label :departing_airport, @flight.departing_airport.name %>
+    <% end %>
+  <% end %>
+<%# current chosen date
+
+departing airport
+
+arriving airport
+
+flight ID
+
+passenger number
+
+passenger info for each passenger that creates a blank passenger object
+
+Uses #fields_for in view to set up sub forms %>
+
+
+      
+</p>
