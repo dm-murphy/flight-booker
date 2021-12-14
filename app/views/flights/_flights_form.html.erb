@@ -45,18 +45,16 @@
 <h4> Search Results</h4>
   <p>
   <% if @searched_flights %>
-    <%= form_with url: "/bookings/new", method: "get" do |form| %>
-    
+    <%= form_with url: "/bookings/new", method: "get" do  %>
       <% @searched_flights.each do |flight| %>
-        <%= form.radio_button :flight_id, flight.id %>
-        <%= form.label :searched_flight, flight.takeoff_time_formatted %>
-        <%= form.label :searched_flight, flight.takeoff_date %>
-        <%= form.hidden_field :passengers, :value => @number_passengers %>
+        <%= radio_button :booking, :flight_id, flight.id %>
+        <%= label :searched_flight, flight.takeoff_time_formatted %>
+        <%= label :searched_flight, flight.takeoff_date %>
         <br>
         <br>
       <% end %>
-
-    <%= form.submit %>
+      <%= hidden_field :booking, :passengers, :value => @number_passengers %>
+      <%= submit_tag("Submit") %>
     <% end %>
   <% end %>
   </p>
