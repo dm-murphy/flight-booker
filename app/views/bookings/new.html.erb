@@ -20,6 +20,14 @@
       <br>
       <%= "Number of passengers:" %>
       <%= label :number_passengers, @number_passengers %>
+      <br>
+      <br>
+      <% passengers_integer = @number_passengers.to_i %>
+      <% passengers_integer.times do |index| %>
+        <%= "Passenger #{index + 1}: " %>
+        <br>
+        <br>
+      <% end %>
     <% end %>
   <% end %>     
 </p>
