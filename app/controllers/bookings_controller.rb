@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @flight = flight_finder
-    @number_passengers = passenger_params
+    @number_passengers = passenger_params.to_i
   end
 
   private
