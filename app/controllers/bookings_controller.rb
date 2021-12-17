@@ -10,13 +10,15 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_details)
     @flight = flight_finder
     @number_passengers = passenger_params.to_i
 
     if @booking.save
+      flash[:alert] = "SUCCESSFUL SAVE"
       redirect_to root_path
     else
+      flash[:alert] = "FAILED TO SAVE"
       render :new
     end
   end
@@ -37,5 +39,9 @@ class BookingsController < ApplicationController
 
     def passenger_params
       params[:booking][:passengers]
+    end
+
+    def booking_details
+      params.require(:booking).permit(:name, :email, :flight_id)
     end
 end
