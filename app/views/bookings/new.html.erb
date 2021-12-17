@@ -2,7 +2,7 @@
 
 <p>
   <% if @booking %>
-    <%= form_with url: "/bookings/create", method: "post" do  %>
+    <%= form_with url: "/bookings", method: "post" do  %>
       <%= "Date of flight:" %>
       <%= label :takeoff_date, @flight.takeoff_date_formatted %>
       <br>
@@ -36,6 +36,8 @@
           <br>
         <% end %>
       <% end %>
+      <%= hidden_field :booking, :flight_id, :value => @flight.id %>
+      <%= hidden_field :booking, :passengers, :value => @number_passengers %>
       <%= submit_tag("Submit") %>
     <% end %>
   <% end %>     
