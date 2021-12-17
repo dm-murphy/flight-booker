@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:alert] = "SUCCESSFUL SAVE"
-      redirect_to root_path
+      redirect_to @booking
     else
       flash[:alert] = "FAILED TO SAVE"
       render :new
