@@ -2,7 +2,7 @@
 
 <p>
   <% if @booking %>
-    <%= form_with url: "/bookings/create", method: "get" do  %>
+    <%= form_with url: "/bookings/create", method: "post" do  %>
       <%= "Date of flight:" %>
       <%= label :takeoff_date, @flight.takeoff_date_formatted %>
       <br>
