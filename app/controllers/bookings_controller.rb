@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @flight = flight_finder
     @number_passengers = passenger_params.to_i
+    @number_passengers.times { @booking.passengers.build }
   end
 
   def create
