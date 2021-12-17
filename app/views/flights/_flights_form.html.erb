@@ -1,5 +1,11 @@
 <h3> Flights Form</h3>
  
+<% if flash[:alert] %>
+      <div id="alert">
+         <%= flash[:alert] %> 
+      </div>
+<% end %>
+
  <%= form_with scope: :search, url: "/flights", method: "get" do %>
     <%= collection_select(
                           :flight,

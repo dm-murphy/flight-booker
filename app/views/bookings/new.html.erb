@@ -1,8 +1,14 @@
 <h2>New Booking Form</h2>
 
+<% if flash[:alert] %>
+      <div id="alert">
+         <%= flash[:alert] %> 
+      </div>
+<% end %>
+
 <p>
   <% if @booking %>
-    <%= form_with url: "/bookings", method: "post" do  %>
+    <%= form_with model: @booking, method: "post" do  %>
       <%= "Date of flight:" %>
       <%= label :takeoff_date, @flight.takeoff_date_formatted %>
       <br>
