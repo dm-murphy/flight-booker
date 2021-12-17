@@ -8,43 +8,38 @@
 
 <p>
   <% if @booking %>
-    <%= form_with model: @booking, method: "post" do  %>
+    <%= form_with model: @booking, method: "post" do |booking_form| %>
       <%= "Date of flight:" %>
-      <%= label :takeoff_date, @flight.takeoff_date_formatted %>
+      <%= booking_form.label :takeoff_date, @flight.takeoff_date_formatted %>
       <br>
       <%= "Takeoff time:" %>
-      <%= label :takeoff_time, @flight.takeoff_time_formatted %>
+      <%= booking_form.label :takeoff_time, @flight.takeoff_time_formatted %>
       <br>
       <%= "Departing airport code:" %>
-      <%= label :departing_airport, @flight.departing_airport.name %>
+      <%= booking_form.label :departing_airport, @flight.departing_airport.name %>
       <br>
       <%= "Arriving airport code:" %>
-      <%= label :arriving_airport, @flight.arriving_airport.name %>
+      <%= booking_form.label :arriving_airport, @flight.arriving_airport.name %>
       <br>
       <%= "Flight ID:" %>
-      <%= label :flight_id, @flight.id %>
+      <%= booking_form.label :flight_id, @flight.id %>
       <br>
       <%= "Number of passengers:" %>
-      <%= label :number_passengers, @number_passengers %>
+      <%= booking_form.label :number_passengers, @number_passengers %>
       <br>
       <br>
-      <% @number_passengers.times do |index| %>
-        <%= "Passenger #{index + 1}: " %>
+      <%= booking_form.fields_for :passengers do |passenger_form| %>
+        <%= passenger_form.label :name, "Full name:" %>
+        <%= passenger_form.text_field :name %>
+        <br>
+        <%= passenger_form.label :email, "Email:" %>
+        <%= passenger_form.email_field :email %>
         <br>
         <br>
-        <%= fields_for @booking.passengers.build do |passenger_form| %>
-          <%= passenger_form.label :name, "Full name:" %>
-          <%= passenger_form.text_field :name %>
-          <br>
-          <%= passenger_form.label :email, "Email:" %>
-          <%= passenger_form.email_field :email %>
-          <br>
-          <br>
-        <% end %>
-      <% end %>
-      <%= hidden_field :booking, :flight_id, :value => @flight.id %>
-      <%= hidden_field :booking, :passengers, :value => @number_passengers %>
-      <%= submit_tag("Submit") %>
+      <% end %>    
+      <%= booking_form.hidden_field :flight_id, :value => @flight.id %>
+      <%= booking_form.hidden_field :passengers, :value => @number_passengers %>
+      <%= booking_form.submit %>
     <% end %>
   <% end %>     
 </p>
