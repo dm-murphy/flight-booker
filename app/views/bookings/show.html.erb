@@ -1,0 +1,23 @@
+<h2>Booking #Show View</h2>
+
+<p>
+<% @booking.passengers.each do |passenger| %>
+  <%= passenger.email %>
+  <br>
+  <%= passenger.name %>
+  <br>
+  <br>
+<% end %>
+</p>
+
+<p>
+<%= @booking.flight.id %>
+<br>
+<%= @booking.flight.departing_airport.name %>
+<br>
+<%= @booking.flight.arriving_airport.name %>
+<br>
+<%= @booking.flight.takeoff_date_formatted %>
+<br>
+<%= @booking.flight.takeoff_time_formatted %>
+</p>
