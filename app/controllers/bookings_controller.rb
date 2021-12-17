@@ -9,6 +9,22 @@ class BookingsController < ApplicationController
     @number_passengers = passenger_params.to_i
   end
 
+  def create
+    @booking = Booking.new
+    @flight = flight_finder
+    @number_passengers = passenger_params.to_i
+
+    if @booking.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   private
 
     def booking_params
