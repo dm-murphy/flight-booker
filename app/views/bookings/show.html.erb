@@ -1,5 +1,11 @@
 <h2>Booking #Show View</h2>
 
+<% if flash[:alert] %>
+      <div id="alert">
+         <%= flash[:alert] %> 
+      </div>
+<% end %>
+
 <p>
 <% @booking.passengers.each do |passenger| %>
   <%= passenger.email %>
