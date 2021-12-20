@@ -16,10 +16,10 @@ class BookingsController < ApplicationController
     @number_passengers = passenger_params.to_i
 
     if @booking.save
-      flash[:alert] = "SUCCESSFUL SAVE"
+      flash[:alert] = "SUCCESS! BOOKING CONFIRMED"
       redirect_to @booking
     else
-      flash[:alert] = "FAILED TO SAVE"
+      flash[:alert] = "FAILED TO SAVE BOOKING"
       render :new
     end
   end
