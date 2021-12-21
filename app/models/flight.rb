@@ -12,4 +12,10 @@ class Flight < ApplicationRecord
   def takeoff_time_formatted
     takeoff_time.strftime("%l:%M %p")
   end
+
+  def duration_formatted
+    hours = duration / 60
+    minutes = duration % 60
+    "#{hours} hours and #{minutes} minutes"
+  end
 end

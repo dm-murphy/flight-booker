@@ -15,6 +15,9 @@
       <%= "Takeoff time:" %>
       <%= booking_form.label :takeoff_time, @flight.takeoff_time_formatted %>
       <br>
+      <%= "Flight duration:" %>
+      <%= booking_form.label :duration, @flight.duration_formatted %>
+      <br>
       <%= "Departing airport code:" %>
       <%= booking_form.label :departing_airport, @flight.departing_airport.name %>
       <br>
