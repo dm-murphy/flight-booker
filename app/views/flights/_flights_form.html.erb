@@ -49,7 +49,7 @@
       <% @searched_flights.each do |flight| %>
         <%= radio_button :booking, :flight_id, flight.id %>
         <%= label :searched_flight, flight.takeoff_time_formatted %>
-        <%= label :searched_flight, flight.takeoff_date %>
+        <%= label :searched_flight, flight.takeoff_date_formatted %>
         <br>
         <br>
       <% end %>
