@@ -32,7 +32,7 @@
     <%= collection_select(
                           :flight,
                           :takeoff_date,
-                          Flight.distinct.select(:takeoff_date),
+                          Flight.distinct.select(:takeoff_date).order('takeoff_date ASC'),
                           :takeoff_date,
                           :takeoff_date_formatted,
                           {:prompt => 'Date of flight'} 
