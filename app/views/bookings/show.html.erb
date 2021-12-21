@@ -7,9 +7,13 @@
 <% end %>
 
 <p>
-<% @booking.passengers.each do |passenger| %>
+<% @booking.passengers.each_with_index do |passenger, index| %>
+  <%= "Passenger #{index + 1}:" %>
+  <br>
+  <%= "Email:" %>
   <%= passenger.email %>
   <br>
+  <%= "Name:" %>
   <%= passenger.name %>
   <br>
   <br>
@@ -17,13 +21,21 @@
 </p>
 
 <p>
-<%= @booking.flight.id %>
-<br>
-<%= @booking.flight.departing_airport.name %>
-<br>
-<%= @booking.flight.arriving_airport.name %>
-<br>
-<%= @booking.flight.takeoff_date_formatted %>
-<br>
-<%= @booking.flight.takeoff_time_formatted %>
+  <%= "Flight ID:" %>
+  <%= @booking.flight.id %>
+  <br>
+  <%= "Departing airport code:" %>
+  <%= @booking.flight.departing_airport.name %>
+  <br>
+  <%= "Arriving airport code:" %>
+  <%= @booking.flight.arriving_airport.name %>
+  <br>
+  <%= "Date of flight:" %>
+  <%= @booking.flight.takeoff_date_formatted %>
+  <br>
+  <%= "Takeoff time:" %>
+  <%= @booking.flight.takeoff_time_formatted %>
+  <br>
+  <%= "Flight duration:" %>
+  <%= @booking.flight.duration_formatted %>
 </p>
