@@ -6,62 +6,263 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 Airport.delete_all
 Flight.delete_all
 
-airports = Airport.create([{ name: 'SFO'}, { name: 'JFK'}, { name: 'EWR'}, {name: 'ORD'}])
+airports = Airport.create([{ name: 'SFO' }, { name: 'JFK' }, { name: 'ORD' }, { name: 'ATL' }])
 
-p "Can you see first airport as object? #{airports.first}"
-p "Can you see the first airport? #{airports.first.name}"
-p "How about the last? #{airports.last.name}"
-p "First airport id? #{airports.first.id}"
-p "Last airport id? #{airports.last.id}"
-
-# flights = Flight.create(takeoff: '2021-12-9T04:05:06+00:00', departing_airport_id: 19, arriving_airport_id: 22)
 flights = Flight.create!([
             {
               departing_airport_id: Airport.find_by!(name: "SFO").id,
+              arriving_airport_id: Airport.find_by!(name: "JFK").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '13:12:01+00:00',
+              duration: 325
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "SFO").id,
+              arriving_airport_id: Airport.find_by!(name: "JFK").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '11:02:01+00:00',
+              duration: 325
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "SFO").id,
+              arriving_airport_id: Airport.find_by!(name: "JFK").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '20:16:01+00:00',
+              duration: 325
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "SFO").id,
               arriving_airport_id: Airport.find_by!(name: "ORD").id,
-              takeoff_date: '2021-12-9',
-              takeoff_time: '04:05:06+00:00',
-              duration: 125
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '08:15:01+00:00',
+              duration: 260
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "SFO").id,
+              arriving_airport_id: Airport.find_by!(name: "ORD").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '14:15:01+00:00',
+              duration: 260
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "SFO").id,
+              arriving_airport_id: Airport.find_by!(name: "ORD").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '20:05:01+00:00',
+              duration: 260
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "SFO").id,
+              arriving_airport_id: Airport.find_by!(name: "ATL").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '09:15:01+00:00',
+              duration: 270
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "SFO").id,
+              arriving_airport_id: Airport.find_by!(name: "ATL").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '16:15:01+00:00',
+              duration: 270
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "SFO").id,
+              arriving_airport_id: Airport.find_by!(name: "ATL").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '22:05:01+00:00',
+              duration: 270
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "JFK").id,
+              arriving_airport_id: Airport.find_by!(name: "SFO").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '06:12:01+00:00',
+              duration: 410
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "JFK").id,
+              arriving_airport_id: Airport.find_by!(name: "SFO").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '12:13:01+00:00',
+              duration: 410
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "JFK").id,
+              arriving_airport_id: Airport.find_by!(name: "SFO").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '22:01:01+00:00',
+              duration: 410
             },
             {
               departing_airport_id: Airport.find_by!(name: "JFK").id,
               arriving_airport_id: Airport.find_by!(name: "ORD").id,
-              takeoff_date: '2021-12-11',
-              takeoff_time: '09:02:01+00:00',
-              duration: 324
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '08:15:01+00:00',
+              duration: 175
             },
             {
               departing_airport_id: Airport.find_by!(name: "JFK").id,
               arriving_airport_id: Airport.find_by!(name: "ORD").id,
-              takeoff_date: '2021-12-11T16:02:01+00:00',
-              takeoff_time: '16:02:01+00:00',
-              duration: 324
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '14:15:01+00:00',
+              duration: 175
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "JFK").id,
+              arriving_airport_id: Airport.find_by!(name: "ORD").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '20:05:01+00:00',
+              duration: 175
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "JFK").id,
+              arriving_airport_id: Airport.find_by!(name: "ATL").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '10:25:01+00:00',
+              duration: 160
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "JFK").id,
+              arriving_airport_id: Airport.find_by!(name: "ATL").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '16:34:01+00:00',
+              duration: 160
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "JFK").id,
+              arriving_airport_id: Airport.find_by!(name: "ATL").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '08:13:01+00:00',
+              duration: 160
+            },
+
+            {
+              departing_airport_id: Airport.find_by!(name: "ORD").id,
+              arriving_airport_id: Airport.find_by!(name: "SFO").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '07:15:01+00:00',
+              duration: 290
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ORD").id,
+              arriving_airport_id: Airport.find_by!(name: "SFO").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '12:11:01+00:00',
+              duration: 290
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ORD").id,
+              arriving_airport_id: Airport.find_by!(name: "SFO").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '18:05:01+00:00',
+              duration: 290
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ORD").id,
+              arriving_airport_id: Airport.find_by!(name: "JFK").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '11:16:01+00:00',
+              duration: 135
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ORD").id,
+              arriving_airport_id: Airport.find_by!(name: "JFK").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '16:01:01+00:00',
+              duration: 135
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ORD").id,
+              arriving_airport_id: Airport.find_by!(name: "JFK").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '18:45:01+00:00',
+              duration: 135
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ORD").id,
+              arriving_airport_id: Airport.find_by!(name: "ATL").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '11:14:01+00:00',
+              duration: 120
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ORD").id,
+              arriving_airport_id: Airport.find_by!(name: "ATL").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '13:42:01+00:00',
+              duration: 120
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ORD").id,
+              arriving_airport_id: Airport.find_by!(name: "ATL").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '18:01:01+00:00',
+              duration: 120
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ATL").id,
+              arriving_airport_id: Airport.find_by!(name: "SFO").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '07:35:01+00:00',
+              duration: 320
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ATL").id,
+              arriving_airport_id: Airport.find_by!(name: "SFO").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '12:15:01+00:00',
+              duration: 320
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ATL").id,
+              arriving_airport_id: Airport.find_by!(name: "SFO").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '19:25:01+00:00',
+              duration: 320
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ATL").id,
+              arriving_airport_id: Airport.find_by!(name: "JFK").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '17:37:01+00:00',
+              duration: 130
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ATL").id,
+              arriving_airport_id: Airport.find_by!(name: "JFK").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '11:05:01+00:00',
+              duration: 130
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ATL").id,
+              arriving_airport_id: Airport.find_by!(name: "JFK").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '10:25:01+00:00',
+              duration: 130
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ATL").id,
+              arriving_airport_id: Airport.find_by!(name: "ORD").id,
+              takeoff_date: Time.zone.now + 1.days,
+              takeoff_time: '09:35:01+00:00',
+              duration: 320
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ATL").id,
+              arriving_airport_id: Airport.find_by!(name: "ORD").id,
+              takeoff_date: Time.zone.now + 3.days,
+              takeoff_time: '15:12:01+00:00',
+              duration: 320
+            },
+            {
+              departing_airport_id: Airport.find_by!(name: "ATL").id,
+              arriving_airport_id: Airport.find_by!(name: "ORD").id,
+              takeoff_date: Time.zone.now + 5.days,
+              takeoff_time: '20:45:01+00:00',
+              duration: 320
             }
           ])
-
-p "Can you see the first flight? #{flights.first}"
-p "First flight departing airport: #{flights.first.departing_airport_id}"
-p "First flight arriving airport: #{flights.first.arriving_airport_id}"
-p "Can you see the airport object for first flight departing airport: #{Airport.find_by!(id: flights.first.departing_airport_id)}"
-p "Does it match the airport found by name? #{Airport.find_by!(name: "SFO")}"
-p "Does it match the airport found by AGAIN name? #{Airport.find_by!(name: "SFO")}"
-p "How about just saying departing airport! and getting its name? #{flights.first.departing_airport.name}"
-puts
-p "Does first flight takeoff show anything?: #{flights.first.takeoff_date}"
-p "First flight duration? #{flights.first.duration}"
-puts
-p "Can you see the last flight? #{flights.last}"
-p "Last flight departing airport: #{flights.last.departing_airport_id}"
-p "Last flight arriving airport: #{flights.last.arriving_airport_id}"
-p "Can you see the airport object for last flight departing airport: #{Airport.find_by!(id: flights.last.departing_airport_id)}"
-p "Does it match the airport found by name? #{Airport.find_by!(name: "JFK")}"
-p "Does it match the airport found by AGAIN name? #{Airport.find_by!(name: "ORD")}"
-p "How about just saying departing airport! and getting its name? #{flights.last.departing_airport.name}"
-puts
-p "Does last flight takeoff show anything?: #{flights.last.takeoff_date}"
-p "Last flight duration? #{flights.last.duration}"
-p "Show time too? #{flights.last.takeoff_time}"
