@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Visit new booking form from flight search submission', type: :system do
+RSpec.describe 'Open new booking form after flight search submission', type: :system do
   scenario 'valid inputs' do
     Rails.application.load_seed
     visit flights_path
