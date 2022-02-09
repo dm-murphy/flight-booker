@@ -26,7 +26,8 @@
                :passengers,
                [1, 2, 3, 4],
                {:prompt => 'Number of passengers'},
-               ) %>
+               ),
+                %>
     <br>
     <br>
     <%= collection_select(
@@ -42,9 +43,10 @@
     <%= submit_tag("Search") %>
   <% end %>
 
-<h4> Search Results</h4>
-  <p>
+
   <% if @searched_flights %>
+    <h4> Search Results</h4>
+    <p>
     <%= form_with url: "/bookings/new", method: "get" do  %>
       <% @searched_flights.each do |flight| %>
         <%= radio_button :booking, :flight_id, flight.id %>
@@ -56,5 +58,5 @@
       <%= hidden_field :booking, :passengers, :value => @number_passengers %>
       <%= submit_tag("Submit") %>
     <% end %>
+    </p>
   <% end %>
-  </p>
