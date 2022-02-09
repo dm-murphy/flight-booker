@@ -47,8 +47,7 @@
     <%= submit_tag("Search") %>
   <% end %>
 
-
-  <% if @searched_flights %>
+  <% if @searched_flights.present? %>
     <h4> Search Results</h4>
     <p>
     <%= form_with url: "/bookings/new", method: "get" do  %>
