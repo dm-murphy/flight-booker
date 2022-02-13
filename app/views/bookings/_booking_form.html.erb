@@ -1,42 +1,38 @@
-<p>
-  <% if @booking %>
-    <%= form_with model: @booking, method: "post" do |booking_form| %>
-      <%= "Date of flight:" %>
-      <%= booking_form.label :takeoff_date, @flight.takeoff_date_formatted %>
+<% if @booking %>
+  <%= form_with model: @booking, method: "post" do |booking_form| %>
+    <%= "Date of flight:" %>
+    <%= booking_form.label :takeoff_date, @flight.takeoff_date_formatted %>
+    <br>
+    <%= "Takeoff time:" %>
+    <%= booking_form.label :takeoff_time, @flight.takeoff_time_formatted %>
+    <br>
+    <%= "Flight duration:" %>
+    <%= booking_form.label :duration, @flight.duration_formatted %>
+    <br>
+    <%= "Departing airport code:" %>
+    <%= booking_form.label :departing_airport, @flight.departing_airport.name %>
+    <br>
+    <%= "Arriving airport code:" %>
+    <%= booking_form.label :arriving_airport, @flight.arriving_airport.name %>
+    <br>
+    <%= "Flight ID:" %>
+    <%= booking_form.label :flight_id, @flight.id %>
+    <br>
+    <%= "Number of passengers:" %>
+    <%= booking_form.label :number_passengers, @number_passengers %>
+    <br>
+    <br>
+    <%= booking_form.fields_for :passengers do |passenger_form| %>
+      <%= passenger_form.label :name, "Full name:" %>
+      <%= passenger_form.text_field :name, :required => 'required'%>
       <br>
-      <%= "Takeoff time:" %>
-      <%= booking_form.label :takeoff_time, @flight.takeoff_time_formatted %>
-      <br>
-      <%= "Flight duration:" %>
-      <%= booking_form.label :duration, @flight.duration_formatted %>
-      <br>
-      <%= "Departing airport code:" %>
-      <%= booking_form.label :departing_airport, @flight.departing_airport.name %>
-      <br>
-      <%= "Arriving airport code:" %>
-      <%= booking_form.label :arriving_airport, @flight.arriving_airport.name %>
-      <br>
-      <%= "Flight ID:" %>
-      <%= booking_form.label :flight_id, @flight.id %>
-      <br>
-      <%= "Number of passengers:" %>
-      <%= booking_form.label :number_passengers, @number_passengers %>
+      <%= passenger_form.label :email, "Email:" %>
+      <%= passenger_form.email_field :email, :required => 'required' %>
       <br>
       <br>
-      <%= booking_form.fields_for :passengers do |passenger_form| %>
-        <%= passenger_form.label :name, "Full name:" %>
-        <%= passenger_form.text_field :name, :required => 'required'%>
-
-        
-        <br>
-        <%= passenger_form.label :email, "Email:" %>
-        <%= passenger_form.email_field :email, :required => 'required' %>
-        <br>
-        <br>
-      <% end %>    
-      <%= booking_form.hidden_field :flight_id, :value => @flight.id %>
-      <%= booking_form.hidden_field :passengers, :value => @number_passengers %>
-      <%= booking_form.submit %>
-    <% end %>
-  <% end %>     
-</p>
+    <% end %>    
+    <%= booking_form.hidden_field :flight_id, :value => @flight.id %>
+    <%= booking_form.hidden_field :passengers, :value => @number_passengers %>
+    <%= booking_form.submit %>
+  <% end %>
+<% end %>
