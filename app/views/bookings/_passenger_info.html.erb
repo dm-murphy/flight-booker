@@ -1,0 +1,11 @@
+<% @booking.passengers.each_with_index do |passenger, index| %>
+  <%= "Passenger #{index + 1}:" %>
+  <br>
+  <%= "Email:" %>
+  <%= passenger.email %>
+  <br>
+  <%= "Name:" %>
+  <%= passenger.name %>
+  <br>
+  <br>
+<% end %>
