@@ -59,3 +59,33 @@
    width: 90px;
    text-align: right;
  }
+
+ button {
+   padding-left: 90px;
+ }
+
+ .flights-form-field label {
+   color: blue;
+   padding-right: 10px;
+ }
+
+ .flights-form-field select {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   min-width: 240px;
+   padding-left: 15px;
+ }
+
+ .flights-form-button {
+   display: grid;
+   justify-items: center;
+ }
+
+ .flights-form-button input {
+   background-color: black;
+   color: white;
+   border: 1px solid black;
+   border-radius: 25px;
+   font-family: Arial, Helvetica, sans-serif;
+   margin-left: .5em;
+   width: 250px;
+ }
