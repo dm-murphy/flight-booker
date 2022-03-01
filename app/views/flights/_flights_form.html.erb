@@ -1,6 +1,9 @@
 <h3> Flights Form</h3>
-
- <%= form_with scope: :search, url: "/flights", method: "get" do %>
+<div class="flights-form">
+<%= form_with scope: :search, url: "/flights", method: "get" do %>
+  <ul>
+    <li>
+    <%= label :flight, "Departing" %>
     <%= collection_select(
                           :flight,
                           :departing_airport_id, 
@@ -10,8 +13,9 @@
                           {:prompt => 'Select departing airport'},
                           :required => 'required'
                           ) %>
-    <br>
-    <br>
+    </li> 
+    <li>
+    <%= label :flight, "Arriving" %>
     <%= collection_select(
                           :flight,
                           :arriving_airport_id,
@@ -21,8 +25,9 @@
                           {:prompt => 'Select arriving airport'},
                           :required => 'required'
                           ) %>
-    <br>
-    <br>
+    </li>
+    <li>
+    <%= label :flight, "Passengers" %>
     <%= select(
                :flight,
                :passengers,
@@ -31,8 +36,9 @@
                :required => 'required'
                )
                 %>
-    <br>
-    <br>
+    </li>
+    <li>
+    <%= label :flight, "Date" %>
     <%= collection_select(
                           :flight,
                           :takeoff_date,
@@ -42,10 +48,12 @@
                           {:prompt => 'Date of flight'},
                           :required => 'required'
                           ) %>
-    <br>
-    <br>
+    </li>
+    <li>
     <%= submit_tag("Search") %>
+    </li>
   <% end %>
+</div>
 
   <% if @searched_flights.present? %>
     <h4> Search Results</h4>
