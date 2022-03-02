@@ -1,83 +1,86 @@
-<h3> Flights Form</h3>
+<h3>Search Flights</h3>
 <div class="flights-form">
-<%= form_with scope: :search, url: "/flights", method: "get" do %>
-  <ul>
-    <li>
-      <div class="flights-form-field">
-        <%= label :flight, "Departing" %>
-        <%= collection_select(
-                              :flight,
-                              :departing_airport_id, 
-                              Airport.all, 
-                              :id,
-                              :name,
-                              {:prompt => 'Select departing airport'},
-                              :required => 'required',
-                              ) %>
-      </div>
-    </li> 
-    <li>
-      <div class="flights-form-field">
-        <%= label :flight, "Arriving" %>
-        <%= collection_select(
-                              :flight,
-                              :arriving_airport_id,
-                              Airport.all,
-                              :id,
-                              :name,
-                              {:prompt => 'Select arriving airport'},
-                              :required => 'required'
-                              ) %>
-      <div>
-    </li>
-    <li>
-      <div class="flights-form-field">
-        <%= label :flight, "Passengers" %>
-        <%= select(
-                  :flight,
-                  :passengers,
-                  [1, 2, 3, 4],
-                  {:prompt => 'Select number of passengers'},
-                  :required => 'required'
-                  )
-                    %>
-      </div>
-    </li>
-    <li>
-      <div class="flights-form-field">
-        <%= label :flight, "Date" %>
-        <%= collection_select(
-                              :flight,
-                              :takeoff_date,
-                              Flight.distinct.select(:takeoff_date).order('takeoff_date ASC'),
-                              :takeoff_date,
-                              :takeoff_date_formatted,
-                              {:prompt => 'Select date of flight'},
-                              :required => 'required'
-                              ) %>
-      </div>
-    </li>
-    <li>
-      <div class="flights-form-button">
-        <%= submit_tag("Search") %>
-      </div>
-    </li>
+  <%= form_with scope: :search, url: "/flights", method: "get" do %>
+    <ul>
+      <li>
+        <div class="flights-form-field">
+          <%= label :flight, "Departing" %>
+          <%= collection_select(
+                                :flight,
+                                :departing_airport_id, 
+                                Airport.all, 
+                                :id,
+                                :name,
+                                {:prompt => 'Select departing airport'},
+                                :required => 'required',
+                                ) %>
+        </div>
+      </li> 
+      <li>
+        <div class="flights-form-field">
+          <%= label :flight, "Arriving" %>
+          <%= collection_select(
+                                :flight,
+                                :arriving_airport_id,
+                                Airport.all,
+                                :id,
+                                :name,
+                                {:prompt => 'Select arriving airport'},
+                                :required => 'required'
+                                ) %>
+        <div>
+      </li>
+      <li>
+        <div class="flights-form-field">
+          <%= label :flight, "Passengers" %>
+          <%= select(
+                    :flight,
+                    :passengers,
+                    [1, 2, 3, 4],
+                    {:prompt => 'Select number of passengers'},
+                    :required => 'required'
+                    )
+                      %>
+        </div>
+      </li>
+      <li>
+        <div class="flights-form-field">
+          <%= label :flight, "Date" %>
+          <%= collection_select(
+                                :flight,
+                                :takeoff_date,
+                                Flight.distinct.select(:takeoff_date).order('takeoff_date ASC'),
+                                :takeoff_date,
+                                :takeoff_date_formatted,
+                                {:prompt => 'Select date of flight'},
+                                :required => 'required'
+                                ) %>
+        </div>
+      </li>
+    </ul>
+    <div class="flights-form-button">
+      <%= submit_tag("Search") %>
+    </div> 
   <% end %>
 </div>
 
-  <% if @searched_flights.present? %>
-    <h4> Search Results</h4>
-    <p>
+<% if @searched_flights.present? %>
+  <h3>Search Results</h3>
+  <div class="flights-results">
     <%= form_with url: "/bookings/new", method: "get" do  %>
-      <% @searched_flights.each do |flight| %>
-        <%= radio_button :booking, :flight_id, flight.id %>
-        <%= label :searched_flight, flight.takeoff_time_formatted %>
-        <%= label :searched_flight, flight.takeoff_date_formatted %>
-        <br>
-        <br>
-      <% end %>
+      <ul>
+        <% @searched_flights.each do |flight| %>
+          <li>
+            <%= radio_button :booking, :flight_id, flight.id %>
+            <%= label :searched_flight, flight.takeoff_time_formatted %>
+            <%= label :searched_flight, flight.takeoff_date_formatted %>
+          </li>
+        <% end %>
+      </ul>
       <%= hidden_field :booking, :passengers, :value => @number_passengers %>
-      <%= submit_tag("Submit") %>
-    <% end %>
-    </p>
-  <% end %>
+      <div class="flights-results-button">
+        <%= submit_tag("Submit") %>
+      </div>
+    <% end %>  
+  </div>
+<% end %>
