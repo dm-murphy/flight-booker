@@ -31,6 +31,21 @@
    color: #2563eb;
  }
 
+ .navbar {
+   display: flex;
+   justify-content: space-around;
+ }
+
+ .logo {
+   flex-shrink: 0;
+   font-size: 30px;
+ }
+
+ .logo a {
+   text-decoration: none;
+   color: #f87171;
+ }
+
  .flight-index {
    background-color: #cbd5e1;
    display: grid;
