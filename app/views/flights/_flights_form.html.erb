@@ -6,7 +6,6 @@
         <div class="flights-form-field">
           
           <%= image_tag "airplane-takeoff.svg" %>
-          <%= label :flight, "Departing" %>
           <%= collection_select(
                                 :flight,
                                 :departing_airport_id, 
@@ -21,7 +20,6 @@
       <li>
         <div class="flights-form-field">
           <%= image_tag "airplane-landing.svg" %>
-          <%= label :flight, "Arriving" %>
           <%= collection_select(
                                 :flight,
                                 :arriving_airport_id,
@@ -36,7 +34,6 @@
       <li>
         <div class="flights-form-field">
           <%= image_tag "account-multiple.svg" %>
-          <%= label :flight, "Passengers" %>
           <%= select(
                     :flight,
                     :passengers,
@@ -50,7 +47,6 @@
       <li>
         <div class="flights-form-field">
           <%= image_tag "airplane-clock.svg" %>
-          <%= label :flight, "Date" %>
           <%= collection_select(
                                 :flight,
                                 :takeoff_date,
