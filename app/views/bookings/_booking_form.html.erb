@@ -1,6 +1,5 @@
 <% if @booking %>
   <h3>New Booking</h3>
-  
   <%= form_with model: @booking, method: "post" do |booking_form| %>
     <div class="booking-info">  
       <div class="booking-info-field">
@@ -39,19 +38,15 @@
       <div class="booking-info-field">
         <%= booking_form.label :flight_id, @flight.id %>
       </div>
-      <div class="booking-info-field">
-        <%= "Passengers:" %>
-      </div>
-      <div class="booking-info-field">
-        <%= booking_form.label :number_passengers, @number_passengers %>      
-      </div>
     </div>
     <div class="booking-passenger-form">
-      <%= booking_form.fields_for :passengers do |passenger_form| %>
+      <span class="passenger-number-field"><%= "Passengers:" %></span>
+      <span class="passenger-number-field"><%= "#{@number_passengers}" %></span>
+      <%= booking_form.fields_for :passengers do |passenger_form, index| %>
         <%= passenger_form.label :name, "Full name:" %>
         <%= passenger_form.text_field :name, :required => 'required'%>
         <%= passenger_form.label :email, "Email:" %>
-        <%= passenger_form.email_field :email, :required => 'required' %>
+        <span class="passenger-email-field"><%= passenger_form.email_field :email, :required => 'required' %></span>
       <% end %>    
     </div>
     <div class="booking-submit">
@@ -59,6 +54,5 @@
       <%= booking_form.hidden_field :passengers, :value => @number_passengers %>
       <%= booking_form.submit %>
     </div>
-  
   <% end %>
 <% end %>
