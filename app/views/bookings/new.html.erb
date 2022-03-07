@@ -1,11 +1,8 @@
-<h2>New Booking Form</h2>
-
-<% if flash[:alert] %>
-      <div id="alert">
-         <%= flash[:alert] %> 
-      </div>
-<% end %>
-
-<%= render 'booking_form' %>
-<br>
-<button><%= link_to 'Restart Flight Search', root_path %>
+<div class="new-booking">
+  <% if flash[:alert] %>
+    <div id="alert">
+      <%= flash[:alert] %> 
+    </div>
+  <% end %>
+  <%= render 'new_booking_form' %>
+  <button><%= link_to 'Restart Flight Search', root_path, :data => {:confirm => "Are you sure?"} %>
