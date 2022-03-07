@@ -16,6 +16,6 @@ class Flight < ApplicationRecord
   def duration_formatted
     hours = duration / 60
     minutes = duration % 60
-    "#{hours} hours and #{minutes} minutes"
+    "#{hours} hours #{minutes} minutes"
   end
 end
