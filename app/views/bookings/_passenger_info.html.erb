@@ -1,11 +1,10 @@
-<% @booking.passengers.each_with_index do |passenger, index| %>
-  <%= "Passenger #{index + 1}:" %>
-  <br>
-  <%= "Email:" %>
-  <%= passenger.email %>
-  <br>
-  <%= "Name:" %>
-  <%= passenger.name %>
-  <br>
-  <br>
-<% end %>
+<div class="confirmed-passenger-info">
+  <% @booking.passengers.each_with_index do |passenger, index| %>
+    <div><%= "Passenger:" %></div>
+    <div><%= "#{index + 1}" %></div>
+    <div><%= "Email:" %></div>
+    <div><%= passenger.email %></div>
+    <div><%= "Name:" %></div>
+    <div><%= passenger.name %></div>
+  <% end %>
+</div>

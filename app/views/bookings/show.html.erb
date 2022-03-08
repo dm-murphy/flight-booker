@@ -1,15 +1,13 @@
-<h2>Booking Confirmation</h2>
+<div class="booking-confirmation">
+  <h3>Booking Confirmation</h3>
 
-<% if flash[:alert] %>
-      <div id="alert">
-         <%= flash[:alert] %> 
-      </div>
-<% end %>
+  <% if flash[:alert] %>
+    <div id="alert">
+      <%= flash[:alert] %> 
+    </div>
+  <% end %>
 
-<%= render 'passenger_info' %>
-<%= render 'flight_info' %>
-
-<br>
-<br>
-
-<button><%= link_to 'Search another flight', root_path %>
+  <%= render 'passenger_info' %>
+  <%= render 'flight_info' %>
+  <button><%= link_to 'Search another flight', root_path %>
+</div>
