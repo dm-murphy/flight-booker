@@ -12,7 +12,7 @@
                                 Airport.all, 
                                 :id,
                                 :name,
-                                {:prompt => 'Select departing airport'},
+                                {:prompt => 'Departing airport'},
                                 :required => 'required',
                                 ) %>
         </div>
@@ -26,7 +26,7 @@
                                 Airport.all,
                                 :id,
                                 :name,
-                                {:prompt => 'Select arriving airport'},
+                                {:prompt => 'Arriving airport'},
                                 :required => 'required'
                                 ) %>
         <div>
@@ -38,7 +38,7 @@
                     :flight,
                     :passengers,
                     [1, 2, 3, 4],
-                    {:prompt => 'Select number of passengers'},
+                    {:prompt => 'Passengers'},
                     :required => 'required'
                     )
                       %>
@@ -53,7 +53,7 @@
                                 Flight.distinct.select(:takeoff_date).order('takeoff_date ASC'),
                                 :takeoff_date,
                                 :takeoff_date_formatted,
-                                {:prompt => 'Select date of flight'},
+                                {:prompt => 'Date of flight'},
                                 :required => 'required'
                                 ) %>
         </div>
