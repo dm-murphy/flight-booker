@@ -49,7 +49,7 @@
  }
 
  .flight-index {
-   background-color: #ffc20a;
+   background-color: #FFA424;
    display: grid;
    justify-items: center;
    padding-bottom: 20px;
@@ -138,7 +138,7 @@
  }
 
  .new-booking {
-  background-color: #ffc20a;
+  background-color: #FFA424;
   display: grid;
   justify-items: center;
   padding-bottom: 20px;
@@ -204,7 +204,7 @@
 .booking-confirmation {
   display: grid;
   justify-items: center;
-  background-color: #ffc20a;
+  background-color: #FFA424;
   padding-bottom: 20px;
 }
 
@@ -240,8 +240,6 @@
   grid-column: 1 / 3;
   font-size: 20px;
 }
-
-
 
 #alert {
   color: #0f172a;
