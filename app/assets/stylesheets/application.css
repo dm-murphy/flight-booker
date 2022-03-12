@@ -156,18 +156,19 @@
   display: grid;
   justify-items: center;
   padding-bottom: 20px;
+  font-size: 18px;
  }
 
- .new-booking button {
-  margin: 25px;
-  background-color: #0f172a;
-  color: white;
-  border: 1px solid #0f172a;
-  border-radius: 25px;
-  font-size: 14px;
-  min-width: 150px;
-  padding: 5px;
- }
+.new-booking button {
+   background-color: #0f172a;
+   color: white;
+   border: 1px solid #0f172a;
+   border-radius: 25px;
+   font-size: 20px;
+   margin-top: 25px;
+   padding: 2px;
+   width: 175px;
+}
 
 .new-booking button a {
   text-decoration: none;
@@ -207,8 +208,8 @@
   border: 1px solid #0f172a;
   border-radius: 25px;
   font-size: 20px;
-  min-width: 250px;
-  padding: 5px;
+  padding: 2px;
+  width: 175px;
 }
 
 .passenger-name-field {
