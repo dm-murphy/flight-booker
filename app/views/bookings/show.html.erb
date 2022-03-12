@@ -6,8 +6,10 @@
       <%= flash[:alert] %> 
     </div>
   <% end %>
-
-  <%= render 'passenger_info' %>
-  <%= render 'flight_info' %>
+  
+  <div>
+    <%= render 'passenger_info' %>
+    <%= render 'flight_info' %>
+  </div>
   <button><%= link_to 'New Search', root_path %>
 </div>
