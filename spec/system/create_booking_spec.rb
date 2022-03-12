@@ -13,7 +13,7 @@ RSpec.describe 'Open new booking form after flight search submission', type: :sy
     click_on 'Search'
     choose(name: 'booking[flight_id]', match: :first)
     click_on 'Submit'
-    expect(page).to have_content('New Booking Form')
+    expect(page).to have_content('new booking')
   end
 
   scenario 'valid search and booking inputs' do
@@ -31,7 +31,7 @@ RSpec.describe 'Open new booking form after flight search submission', type: :sy
     fill_in 'Full name:', with: 'Uncle Bob'
     fill_in 'Email:', with: 'cleancoderocks@fakemail.com'
     click_on 'Create Booking'
-    expect(page).to have_content('SUCCESS')
+    expect(page).to have_content('Your booking has been confirmed')
   end
 
   scenario 'invalid search inputs from matching airport ids' do
@@ -67,7 +67,7 @@ RSpec.describe 'Open new booking form after flight search submission', type: :sy
     choose(name: 'booking[flight_id]', match: :first)
     click_on 'Submit'
     click_on 'Create Booking'
-    expect(page).not_to have_content('SUCCESS')
+    expect(page).not_to have_content('Your booking has been confirmed')
   end
 
   scenario 'require all passenger fields to be entered' do
@@ -85,6 +85,6 @@ RSpec.describe 'Open new booking form after flight search submission', type: :sy
     fill_in 'Full name:', with: 'Uncle Bob', match: :first
     fill_in 'Email:', with: 'cleancoderocks@fakemail.com', match: :first
     click_on 'Create Booking'
-    expect(page).not_to have_content('SUCCESS')
+    expect(page).not_to have_content('Your booking has been confirmed')
   end
 end

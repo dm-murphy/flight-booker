@@ -19,7 +19,7 @@ RSpec.describe Flight, type: :model do
 
   context "duration is integer of total minutes" do
     it "formats duration into hours and minutes" do
-      expect(flight.duration_formatted).to eq("5 hours and 25 minutes")
+      expect(flight.duration_formatted).to eq("5 hours 25 minutes")
     end
   end
 end
