@@ -1,8 +1,14 @@
 <div class="confirmed-flight-info">
-  <div><%= "Flight ID: #{@booking.flight.id}" %></div>
-  <div><%= "Departing airport: #{@booking.flight.departing_airport.name}" %></div>
-  <div><%= "Arriving airport: #{@booking.flight.arriving_airport.name}" %></div>
-  <div><%= "Date: #{@booking.flight.takeoff_date_formatted}" %></div>
-  <div><%= "Takeoff: #{@booking.flight.takeoff_time_formatted}" %></div>
-  <div><%= "Duration: #{@booking.flight.duration_formatted}" %></div>
+  <div><%= "Flight ID:" %></div>
+  <div><%= @booking.flight.id %></div>
+  <div><%= "Departing:" %></div>
+  <div><%= @booking.flight.departing_airport.name %></div>
+  <div><%= "Arriving:" %></div>
+  <div><%= @booking.flight.arriving_airport.name %></div>
+  <div><%= "Date:" %></div>
+  <div><%= @booking.flight.takeoff_date_formatted %></div>
+  <div><%= "Takeoff:" %></div>
+  <div><%= @booking.flight.takeoff_time_formatted %></div>
+  <div><%= "Duration:" %></div>
+  <div><%= @booking.flight.duration_formatted %></div>
 </div>

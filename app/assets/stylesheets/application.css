@@ -259,7 +259,7 @@
 
 .confirmed-flight-info {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 14px;
   background-color: white;
   padding: 15px;
