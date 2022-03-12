@@ -195,6 +195,7 @@
   border-radius: 25px;
   border: 2px solid black;
   margin: 15px;
+  margin-bottom: 25px;
 }
 
 .booking-submit {
@@ -223,15 +224,14 @@
   padding-bottom: 20px;
 }
 
-.booking-confirmation button {
-  margin: 25px;
+ .booking-confirmation button {
   background-color: #0f172a;
   color: white;
   border: 1px solid #0f172a;
   border-radius: 25px;
-  font-size: 14px;
-  min-width: 150px;
-  padding: 5px;
+  font-size: 20px;
+  padding: 2px;
+  width: 175px;
  }
 
 .booking-confirmation button a {
@@ -249,11 +249,25 @@
   border: 2px solid black;
   margin: 15px;
   align-items: center;
+  font-size: 18px;
 }
 
 .passenger-info-number {
   grid-column: 1 / 3;
   font-size: 20px;
+}
+
+.confirmed-flight-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 25px;
+  border: 2px solid black;
+  margin: 15px;
+  margin-bottom: 25px;
+  font-size: 18px;
 }
 
 #alert {
