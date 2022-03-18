@@ -24,6 +24,9 @@ $ git clone git@github.com:dm-murphy/flight-booker.git
 $ bundle install
 $ rails db:migrate
 $ rails db:seed
+
+# Note: If Webpacker throws a MissingEntryError try the following command:
+$ rake webpacker:install
 ```
 
 ## What Was Learned
