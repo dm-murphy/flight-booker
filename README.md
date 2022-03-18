@@ -10,7 +10,7 @@ Users can search available flights with a form of dropdown menus covering depart
 
 ## Demo Online
 
-Heroku app coming soon!
+Check out this [Flight Booker](https://intense-ocean-12420.herokuapp.com/) app running on Heroku.
 
 ## Try It Local
 
@@ -21,8 +21,13 @@ Heroku app coming soon!
 $ git clone git@github.com:dm-murphy/flight-booker.git
 $ bundle install
 $ rails db:migrate
+$ rails db:seed
 ```
 
 ## What Was Learned
 
-Coming soon!
+This project dove much deeper into Rails forms (with `select` and `collection_select`) and using nested forms. This was also good practice for seeding a database with flight data as well as formatting and stripping dates/times.
+
+I used RSpec to incorporate model specs to confirm the date/time formatting and system specs with Capybara to run through the full use of the app for both valid and invalid selections.
+
+For the design, I focused a bit more on web accessible colors (WCAG AA+) and font sizes to improve readability.
