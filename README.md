@@ -12,6 +12,8 @@ Users can search available flights with a form of dropdown menus covering depart
 
 Check out this [Flight Booker](https://intense-ocean-12420.herokuapp.com/) app running on Heroku.
 
+![Flight booker app with search fields entered](flight-booker-screen-shot.png)
+
 ## Try It Local
 
 * Ruby version 2.7.2
